@@ -1,18 +1,5 @@
-= form_for @article do |f|
-  - if @article.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
-      ul
-        - @article.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :author
-    = f.text_field :author
-  .actions = f.submit
+= simple_form_for(@article, wrapper: :horizontal_form, html: { class: 'form-horizontal' })  do |f|
+  = f.input :title
+  = f.input :content
+  = f.association :author, label_method: :email
+  = f.button :submit_cancel, class: 'btn-lg', cancel: articles_path
