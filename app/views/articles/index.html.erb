@@ -17,6 +17,7 @@
 
   g.column do |article|
     link_to '修改', edit_article_path(article)
+    link_to '查看', article_path(article)
   end
  end %>
 <%= link_to 'New Article', new_article_path %>

@@ -5,3 +5,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'wice_grid';
+
+@for $i from 1 to 100 {
+  .w#{$i}p {
+    width: $i*1%;
+  }
+}

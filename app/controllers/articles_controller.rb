@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @articles = current_power.articles
+    authorize! :read, @article
   end
 
   # GET /articles/new
