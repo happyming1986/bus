@@ -9,7 +9,7 @@ class Resource
     source :read, Article do |user, obj|
       false
     end
-    source [ :approve, :decline, :freeze, :finish, :renew, :deposit_margin ], Article
+    source [ :update, :create, :destroy ], Article
   end
 
   # 评论

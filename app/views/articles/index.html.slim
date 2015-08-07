@@ -1,0 +1,24 @@
+= grid(@articles_grid, show_filters: :when_filtered) do |g|
+  ruby:
+    g.column name: '编号', attribute: 'id'
+    g.column name: '标题', attribute: 'title'
+    g.column name: '内容', attribute: 'content'
+    g.column name: '新建时间', attribute: 'created_at', filter: false do |article|
+      article.created_at.to_s(:db)
+    end
+    g.column name: '作者', attribute: 'email', model: 'User', custom_filter: ['339755551@qq.com', 'cordia@hotmail.com']  do |article|
+      article.author.email
+    end
+    g.column do |article|
+      link_to '修改', edit_article_path(article)
+      link_to '查看', article_path(article)
+    end
+= link_to 'New Article', new_article_path
+
+coffee:
+  conole.log 'hello'
+
+sass:
+  table th
+    &>a
+      color: red
